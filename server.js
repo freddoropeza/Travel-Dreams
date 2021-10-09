@@ -2,6 +2,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
+const indexController = require('./controllers/index');
+const usersController = require('./controllers/users');
+const postsController = require('./controllers/posts');
 
 const expressSession = require('express-session');
 
@@ -31,9 +34,9 @@ app.use(expressSession({
 }));
 
 // Routes
-app.get('/', (req, res) => {
-    res.render('home.ejs');
-});
+app.use('/', indexController);
+app.use('/', usersController);
+app.use('/', postsController);
 
 // Listen
 app.listen(PORT, () => {console.log(`Express is listening on port:${PORT}`)});
