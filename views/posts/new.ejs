@@ -10,18 +10,16 @@
     <header>
         <h1>Travel Dreams</h1>
         <nav>
-            <a href="/">Back</a>
+            <a href="/dashboard">Back</a>
+            <a href="/signout">Sign Out</a>
         </nav>
     </header>
     <main>
-        <form action="/signup" method="POST" autocomplete="off">
-            <label>Username:
-                <input type="text" name="username" required>
-            </label><br>
-            <label>Password:
-                <input type="password" name="password" required>
-            </label><br>
-            <input type="submit" value="Sign Up">
+        <h1>Create a New Post</h1>
+        <form action="/posts" method="post">
+            IMG URL:<input type="text" name="img">
+            Description:<input type="text" name="body">
+            <input type="submit" value="Add Post">
         </form>
     </main>
     <footer>

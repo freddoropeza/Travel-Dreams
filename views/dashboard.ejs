@@ -10,10 +10,29 @@
     <header>
         <h1>Travel Dreams</h1>
         <nav>
+            <a href="/posts/new">Share Your Travels</a>
             <a href="/signout">Sign Out</a>
         </nav>
     </header>
     <main>
+        <h2>List of Post</h2>
+        <% posts.forEach(posts => { %>
+            <div>
+                <a href="/posts/<%=posts._id%>">
+                <img src="<%=posts.img%>">
+                </a>
+            </div>
+        <% }) %>
+            <!-- <% for(let i = 0; i < posts.length; i++){ %>
+                <div>
+                    <a href="/posts/<%=posts[i]._id%>">
+                    <img src="<%=posts[i].img%>">
+                    </a>
+                </div>
+            <% } %> -->
+<!-- make all post show on dashboard. A href pic like pokedex-->
     </main>
+    <footer>
+    </footer>
 </body>
 </html>

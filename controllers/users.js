@@ -52,11 +52,17 @@ router.get('/signout', (req, res) => {
 
 // Protected Route
 router.get('/dashboard', isAuthenticated, (req, res) => {
-    User.findById(req.session.user, (err, user) => {
-        Post.find({author: user._id}, (err, posts) => {
-            res.render('dashboard.ejs', { user, posts });
-        })
+    Post.find({}).sort('-_id').exec(function(err, foundPosts) {
+        res.render('dashboard.ejs', {
+            posts: foundPosts
+        });
     });
+    // ASK arrow function / same as user index
+    // Post.find({}).sort('-_id'),(err, foundPosts) => {
+    //     res.render('dashboard.ejs', {
+    //         posts: foundPosts
+    //     });
+    // };
 });
 
 module.exports = router;
