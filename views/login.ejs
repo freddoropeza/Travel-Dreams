@@ -10,9 +10,12 @@
     <header>
         <h1>Travel Dreams</h1>
         <nav>
-            <a href="/home">Back</a>
+            <a href="/">Back</a>
         </nav>
     </header>
+    <% if(error) { %>
+        <p style="color: red;"><%= error %></p>
+    <% } %>
     <main>
         <form action="/login" method="POST" autocomplete="off">
             <label>Username:
@@ -24,6 +27,8 @@
             <input type="submit" value="Login">
         </form>
     </main>
+    <footer>
+    </footer>
 </body>
 </html>
 
