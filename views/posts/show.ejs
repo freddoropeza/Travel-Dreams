@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Dreams</title>
+</head>
+<body>
+    <header>
+        <h1>Travel Dreams</h1>
+        <nav>
+            <a href="/dashboard">Back</a>
+            <a href="/posts/new">Share Your Travels</a>
+            <a href="/signout">Sign Out</a>
+        </nav>
+    </header>
+    <main>
+       <div class="show">
+            <img src=<%=post.img%>>
+            <p><%= post.body %></p>
+            <p><%= post.author.username %></p>
+       </div>
+    </main>
+    <footer>
+    </footer>
+</body>

@@ -31,6 +31,12 @@ router.post('/posts', isAuthenticated, (req, res) => {
 // Edit
 
 // Show
-
+router.get("/posts/:id", (req, res) => {
+    Post.findById(req.params.id).populate('author').exec((err, foundPost) => {
+      res.render("posts/show.ejs", {
+        post: foundPost,
+      })
+    })
+})
 
 module.exports = router;
