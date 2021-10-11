@@ -1,7 +1,6 @@
 const Post = require('../models/post');
 const router = require('express').Router();
 const isAuthenticated = require('../utilities/auth');
-// induces
 
 // Index
 router.get('/dashboard', (req, res) => {
@@ -19,6 +18,12 @@ router.get('/posts/new', isAuthenticated, (req, res) => {
 // Delete
 
 // Update
+router.put("/posts/:id/", (req, res) => {
+    Post.findByIdAndUpdate(req.params.id, req.body, (err, post) => {
+        res.redirect(`/posts/${req.params.id}`)
+    }); 
+}); 
+
 
 // Create
 router.post('/posts', isAuthenticated, (req, res) => {
@@ -29,6 +34,13 @@ router.post('/posts', isAuthenticated, (req, res) => {
 });
 
 // Edit
+router.get("/posts/:id/edit", (req, res) => {
+    Post.findById(req.params.id, (err, foundPost) => {
+      res.render("posts/edit.ejs", {
+        post: foundPost,
+      })
+    })
+});
 
 // Show
 router.get("/posts/:id", (req, res) => {
@@ -37,6 +49,6 @@ router.get("/posts/:id", (req, res) => {
         post: foundPost,
       })
     })
-})
+});
 
 module.exports = router;

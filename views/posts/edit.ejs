@@ -11,18 +11,17 @@
         <h1>Travel Dreams</h1>
         <nav>
             <a href="/dashboard">Back</a>
-            <a href="/posts/new">Share Your Travels</a>
             <a href="/signout">Sign Out</a>
         </nav>
     </header>
     <main>
-       <div class="show">
-            <img src=<%=post.img%>>
-            <p><%= post.body %></p>
-            <a href="/users/<%= post.author._id %>"<p><%= post.author.username %></p>
-       </div>
-       <a href="/posts/<%=post._id%>/edit">Edit</a>
+        <h1>Edit Description</h1>
+        <form action="/posts/<%=post._id%>?_method=PUT"" method="POST">
+            Description:<input type="text" name="body" value="<%= post.body %>">
+            <input type="submit" value="Submit Change">
+        </form>
     </main>
     <footer>
     </footer>
 </body>
+</html>

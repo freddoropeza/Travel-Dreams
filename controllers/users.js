@@ -57,12 +57,19 @@ router.get('/dashboard', isAuthenticated, (req, res) => {
             posts: foundPosts
         });
     });
-    // ASK arrow function / same as user index
-    // Post.find({}).sort('-_id'),(err, foundPosts) => {
-    //     res.render('dashboard.ejs', {
-    //         posts: foundPosts
-    //     });
-    // };
 });
+
+// Routes INDUCES
+
+// Show
+router.get('/users/:id', (req, res) => {
+    User.findById(req.params.id, (err, foundUser) => {
+        // res.render('users/show.ejs', {
+        //     user: foundUser
+        // });
+        console.log(foundUser)
+    });
+});
+
 
 module.exports = router;

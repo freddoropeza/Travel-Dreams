@@ -2,6 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
+const methodOverride = require("method-override")
 const indexController = require('./controllers/index');
 const usersController = require('./controllers/users');
 const postsController = require('./controllers/posts');
@@ -32,6 +33,7 @@ app.use(expressSession({
         maxAge: 86400000 // 24 hour session 
     } 
 }));
+app.use(methodOverride("_method"))
 
 // Routes
 app.use('/', indexController);
