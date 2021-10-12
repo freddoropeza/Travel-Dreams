@@ -19,7 +19,9 @@
        <div class="show">
             <img src=<%=post.img%>>
             <p><%= post.body %></p>
-            <a href="/users/<%= post.author._id %>"<p><%= post.author.username %></p>
+            <a href="/users/<%= post.author._id %>">
+                <p><%= post.author.username %></p>
+            </a>
        </div>
        <a href="/posts/<%=post._id%>/edit">Edit</a>
     </main>

@@ -44,7 +44,7 @@ router.get("/posts/:id/edit", (req, res) => {
 
 // Show
 router.get("/posts/:id", (req, res) => {
-    Post.findById(req.params.id).populate('author').exec((err, foundPost) => {
+    Post.findById(req.params.id).sort('-_id').populate('author').exec((err, foundPost) => {
       res.render("posts/show.ejs", {
         post: foundPost,
       })

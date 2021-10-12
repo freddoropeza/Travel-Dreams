@@ -59,17 +59,16 @@ router.get('/dashboard', isAuthenticated, (req, res) => {
     });
 });
 
-// Routes INDUCES
+// Routes 
 
-// Show
+// Show User Profile
 router.get('/users/:id', (req, res) => {
-    User.findById(req.params.id, (err, foundUser) => {
-        // res.render('users/show.ejs', {
-        //     user: foundUser
-        // });
-        console.log(foundUser)
+    Post.find({author: req.params.id}).exec(function(err, foundPosts) {
+        console.log(foundPosts)
+        res.render('users/show.ejs', {
+            posts: foundPosts
+        });
     });
 });
-
 
 module.exports = router;

@@ -16,11 +16,12 @@
         </nav>
     </header>
     <main>
-        <h2><%= user.username %></h2>
+        <h2><%= post.author.username %></h2>
         <% posts.forEach(posts => { %>
-            <div class="userProfile">
-                <img src=<%=post.img%>>
-                <p><%= post.body %></p>
+            <div>
+                <a href="/posts/<%=posts._id%>">
+                <img src="<%=posts.img%>">
+                </a>
             </div>
         <% }) %>
     </main>
