@@ -23,7 +23,10 @@
                 <p><%= post.author.username %></p>
             </a>
        </div>
-       <a href="/posts/<%=post._id%>/edit">Edit</a>
+        <H2><a href="/posts/<%=post._id%>/edit">Edit</a></H2>
+        <form action="/posts/<%=post._id %>?_method=DELETE" method="POST">
+            <input type="Submit" value="Delete">
+        </form>
     </main>
     <footer>
     </footer>

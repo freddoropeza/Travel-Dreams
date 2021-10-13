@@ -1,6 +1,7 @@
 const Post = require('../models/post');
 const router = require('express').Router();
 const isAuthenticated = require('../utilities/auth');
+const User = require('../models/user');
 
 // Index
 router.get('/dashboard', (req, res) => {
@@ -8,7 +9,6 @@ router.get('/dashboard', (req, res) => {
         res.render('posts/dashboard.ejs');
     });
 });
-// { posts, user: req.session.user }
 
 // New
 router.get('/posts/new', isAuthenticated, (req, res) => {
@@ -16,6 +16,11 @@ router.get('/posts/new', isAuthenticated, (req, res) => {
 });
 
 // Delete
+router.delete("/posts/:id", (req, res) => {
+    Post.findByIdAndRemove(req.params.id, (err, post) => {
+        res.redirect("/dashboard")
+    })
+})
 
 // Update
 router.put("/posts/:id/", (req, res) => {
@@ -43,12 +48,21 @@ router.get("/posts/:id/edit", (req, res) => {
 });
 
 // Show
-router.get("/posts/:id", (req, res) => {
-    Post.findById(req.params.id).sort('-_id').populate('author').exec((err, foundPost) => {
-      res.render("posts/show.ejs", {
-        post: foundPost,
-      })
+router.get("/posts/:id", isAuthenticated, (req, res) => {
+    const user = req.session.user
+    Post.findById(req.params.id).populate('author').exec((err, foundPost) => {
+        res.render("posts/show.ejs", {
+            post: foundPost,
+            user: req.session.user
+        })
+
+        console.log(user)
+        console.log(foundPost)
     })
 });
 
 module.exports = router;
+
+// <% if (user === post.author_id) { %>
+//     <H2><a href="/posts/<%=post._id%>/edit">Edit</a></H2>
+// <% } %>
