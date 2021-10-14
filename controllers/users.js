@@ -73,19 +73,4 @@ router.get('/users/:id', isAuthenticated, (req, res) => {
     });
 });
 
-
-// router.get('/users/:id', isAuthenticated, (req, res) => {
-//     User.findById(req.session.user, (err, user) => {
-//         Post.find({author: req.params.id}).populate('author').exec(function(err, foundPosts) {
-//             res.render('users/show.ejs', {
-//                 posts: foundPosts,
-//                 user,
-//             });
-//             console.log(foundPosts)
-//             console.log(req.session.user)
-    
-//     });
-// });
-// })
-
 module.exports = router;

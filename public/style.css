@@ -1,0 +1,177 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+.home-header {
+    color: white;
+    min-height: 8vh;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+}
+
+.home-nav {
+    display: inline;
+    position: absolute;
+    right: 12px;
+    top: 1.7%;
+}
+
+.home-h1{
+    display: inline;
+    align-content: center;
+    margin: 0%;
+    font-family: 'Pacifico', cursive;
+    font-size: 6vmin;
+}
+
+.home-body {
+    background-image: url(https://i.ibb.co/6P0jjGp/david-edelstein-N4-Dbv-TUDikw-unsplash.jpg);
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+}
+
+.home-main {
+    min-height: 88vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+}
+
+.home-footer {
+    min-height: 4vh;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    background: transparent;
+}
+
+header {
+    background-color: black;
+    color: white;
+    min-height: 8vh;
+    display: flex;
+    justify-content: left;
+}
+
+nav {
+    display: inline;
+    position: absolute;
+    right: 12px;
+    top: 1.7%;
+}
+
+h1 {
+    display: inline;
+    align-content: center;
+    margin: 0%;
+    font-family: 'Pacifico', cursive;
+    font-size: 6vmin;
+    padding-left: 10px;
+}
+
+.dashboard, .dashboard:hover {
+    text-decoration: none;  
+    color: white;  
+}
+
+main {
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 25px;
+}
+
+img {
+    width:  100%;
+}
+
+.user-name {
+    margin-bottom: 0px;
+}
+
+.user-row{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+    margin-top: 25px;
+}
+
+.show {
+    max-width: 86vh;
+    text-align: center;
+}
+
+.show img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+.column {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+}
+
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+    .column, .show {
+      flex: 50%;
+      max-width: 50%;
+    }
+}
+  
+@media screen and (max-width: 600px) {
+    .column, .show {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+.edit-btn {
+    display: flex;
+}
+
+footer {
+    min-height: 3vh;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    background: transparent;
+}
+
+div.icons, .home-a {
+    display: inline-block;
+    vertical-align: middle;
+    height: 18px;
+}
+
+a, a:hover {
+    text-decoration: none;  
+    border: none;
+    color: rgb(0, 0, 0);
+}
+
+.home-a, .home-a:hover {
+    text-decoration: none;  
+    border: none;
+    color: rgb(255, 255, 255);
+}

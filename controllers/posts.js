@@ -47,7 +47,7 @@ router.get("/posts/:id/edit", (req, res) => {
     })
 });
 
-// Show
+// Show User not being tracked
 router.get("/posts/:id", isAuthenticated, (req, res) => {
     const user = req.session.user
     Post.findById(req.params.id).populate('author').exec((err, foundPost) => {
@@ -63,6 +63,3 @@ router.get("/posts/:id", isAuthenticated, (req, res) => {
 
 module.exports = router;
 
-// <% if (user === post.author_id) { %>
-//     <H2><a href="/posts/<%=post._id%>/edit">Edit</a></H2>
-// <% } %>

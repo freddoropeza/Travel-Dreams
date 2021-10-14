@@ -33,6 +33,7 @@ app.use(expressSession({
         maxAge: 86400000 // 24 hour session 
     } 
 }));
+app.use(express.static('public'))
 app.use(methodOverride("_method"))
 
 // Routes
