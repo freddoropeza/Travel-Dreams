@@ -55,9 +55,6 @@ router.get("/posts/:id", isAuthenticated, (req, res) => {
             post: foundPost,
             user: req.session.user
         })
-
-        console.log(user)
-        console.log(foundPost)
     })
 });
 
