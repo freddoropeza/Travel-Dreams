@@ -16,8 +16,8 @@ require('dotenv').config();
 const PORT = process.env.PORT;
 
 // Database 
-const DATABASE_URL = process.env.DATABASE_URL;
-mongoose.connect(DATABASE_URL);
+const MONGODB_URI = process.env.MONGODB_URI;
+mongoose.connect(MONGODB_URI);
 const db = mongoose.connection;
 db.on('connected', () => console.log('Connected to MongoDB'));
 db.on('error', (error) => console.log('MongoDB Error ' + error.message));
@@ -43,3 +43,5 @@ app.use('/', postsController);
 
 // Listen
 app.listen(PORT, () => {console.log(`Express is listening on port:${PORT}`)});
+
+console.log(MONGODB_URI)

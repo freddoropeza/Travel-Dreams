@@ -64,12 +64,10 @@ router.get('/dashboard', isAuthenticated, (req, res) => {
 // Show User Profile
 router.get('/users/:id', isAuthenticated, (req, res) => {
     Post.find({author: req.params.id}).populate('author').exec(function(err, foundPosts) {
-        console.log(foundPosts)
         res.render('users/show.ejs', {
             posts: foundPosts,
             user: req.session.user,
         });
-        console.log(req.session.user)
     });
 });
 
